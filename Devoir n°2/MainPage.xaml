@@ -1,0 +1,112 @@
+﻿<Page
+    x:Class="Devoir_n_2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Devoir_n_2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
+
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="642,99,0,0" Text="Gestion Portefeuille" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="273" FontSize="30"/>
+        <TextBlock HorizontalAlignment="Left" Margin="80,216,0,0" Text="Liste des traders" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" FontSize="22" Width="170"/>
+        <TextBlock HorizontalAlignment="Left" Margin="468,216,0,0" Text="Liste des actions" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" FontSize="22" Width="170"/>
+        <TextBlock HorizontalAlignment="Left" Margin="755,218.959,0,0" Text="Achat" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" FontSize="22" Width="76.997" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="0.051"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="1044.56,143.959,0,0" Text="Vente" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" FontSize="22" Width="76.997" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="0.051"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <ListView Name="lvTrades" Margin="10,259,1192,0" SelectionChanged="LvTrades_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+        <ListView Name="lvActions" Margin="313,259,690,0" SelectionChanged="LvActions_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding CodeAction}" Width="50"></TextBlock>
+                        <TextBlock Text="{Binding NomAction}" Width="50"></TextBlock>
+                        <TextBlock Text="{Binding ValeurAction}" Width="50"></TextBlock>
+                        <TextBlock Text="{Binding Quantite}" Width="50"></TextBlock>
+                        <TextBlock Text="{Binding  PrixAchat}" Width="50"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView Name="lvAchat" Margin="703,259,293,0" SelectionChanged="LvAchat_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding CodeAction}" Width="50"></TextBlock>
+                        <TextBlock Text="{Binding NomAction}" Width="50"></TextBlock>
+                        <TextBlock Text="{Binding ValeurAction}" Width="50"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBox Name="txtNomAction" HorizontalAlignment="Left" Margin="993,282,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" Height="38" FontSize="16" IsEnabled="False"/>
+        <TextBox Name="txtValeurAction" HorizontalAlignment="Left" Margin="993,375,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" Height="38" FontSize="16" IsEnabled="False"/>
+        <TextBox Name="txtPrixAchat" HorizontalAlignment="Left" Margin="993,462,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" Height="38" FontSize="16" IsEnabled="False"/>
+        <TextBox Name="txtQuantiteAchetee" HorizontalAlignment="Left" Margin="993,543,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" Height="38" FontSize="16" IsEnabled="False"/>
+        <TextBox Name="txtQuantiteVendue" HorizontalAlignment="Left" Margin="993,624,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" Height="38" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="993.56,243.01,0,0" Text="Nom de l'action" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" FontSize="22" Width="190.992" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="0.051"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="993.56,342.01,0,0" Text="Valeur de l'action" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" FontSize="22" Width="190.992" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="0.051"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="1003.56,432.01,0,0" Text="Prix achat" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" FontSize="22" Width="190.992" RenderTransformOrigin="0.452,-1.125" UseLayoutRounding="False" d:LayoutRounding="Auto" IsTapEnabled="False">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="0.051" TranslateX="0.063" TranslateY="-0.008"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="1003.56,504.01,0,0" Text="Quantité achetée" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" FontSize="22" Width="190.992" RenderTransformOrigin="0.452,-1.125" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="0.051" TranslateX="0.063" TranslateY="-0.008"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="1013.56,585.01,0,0" Text="Quantité vendue" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" FontSize="22" Width="190.992" RenderTransformOrigin="0.452,-1.125" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="0.051" TranslateX="0.063" TranslateY="-0.008"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Button Name="btnValider" Content="Valider" Margin="1073,667,0,0" VerticalAlignment="Top" Height="35" Width="134"/>
+        <TextBox Name="txtPortefeuille" HorizontalAlignment="Left" Margin="80,605,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" Height="38" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="75.56,569.272,0,0" Text="Portefeuille" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" FontSize="22" Width="190.992" RenderTransformOrigin="0.452,-1.125" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="0.051" TranslateX="0.063" TranslateY="-0.008"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBox Name="txtQuantiteAchat" HorizontalAlignment="Left" Margin="478,667,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" Height="38" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="478.56,633.01,0,0" Text="Quantité " TextWrapping="Wrap" VerticalAlignment="Top" Height="40" FontSize="22" Width="190.992" RenderTransformOrigin="0.452,-1.125" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="0.051" TranslateX="0.063" TranslateY="-0.008"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBox Name="txtPrixAcheter" HorizontalAlignment="Left" Margin="468,592,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" Height="38" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="473.56,549.01,0,0" Text="Prix achat" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" FontSize="22" Width="190.992" RenderTransformOrigin="0.452,-1.125" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="0.051" TranslateX="0.063" TranslateY="-0.008"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Button Name="btnAcheter" Content="Acheter" Margin="339,670,0,0" VerticalAlignment="Top" Height="35" Width="134" Click="BtnAcheter_Click" RenderTransformOrigin="1.007,0.029"/>
+
+    </Grid>
+</Page>
